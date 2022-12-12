@@ -1,6 +1,6 @@
 <?php
 // memanggil library FPDF
-require('./fpdf185/fpdf.php');
+require('fpdf/fpdf.php');
 // intance object dan memberikan pengaturan halaman PDF
 $pdf = new FPDF('l','mm','A5');
 // membuat halaman baru
@@ -20,11 +20,9 @@ $pdf->Cell(20,6,'NIS',1,0);
 $pdf->Cell(85,6,'NAMA MAHASISWA',1,0);
 $pdf->Cell(27,6,'JENIS KELAMIN',1,0);
 $pdf->Cell(25,6,'TELEPON',1,1);
-$pdf->Cell(25,6,'ALAMAT',1,1);
 
 $pdf->SetFont('Arial','',10);
-
-include 'koneksi.php';
+include 'koneksi_lama.php';
 $mahasiswa = mysqli_query($db, "select * from siswa");
 while ($row = mysqli_fetch_array($mahasiswa)){
     $pdf->Cell(20,6,$row['nis'],1,0);
